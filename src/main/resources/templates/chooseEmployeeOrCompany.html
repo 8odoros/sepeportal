@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <title>Επιβεβαίωση στοιχείων ΙΚΑ</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href="/portal/static/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/portal/static/css/main.css" rel="stylesheet"/>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/portal/static/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .modal.fade .modal-dialog {
+            transform: translate(0px, -25%);
+            transition: transform 0.3s ease-out 0s;
+        }
+        .modal.fade.in .modal-dialog {
+            transform: translate(0px, 0px);
+        }
+        .flyover {
+            left: 150%;
+            overflow: hidden;
+            position: fixed;
+            width: 50%;
+            opacity: 0.9;
+            z-index: 1050;
+            transition: left 0.6s ease-out 0s;
+        }
+
+        .flyover-centered {
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .flyover.in {
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="message1" class="jumbotron flyover flyover-centered">
+    <h3>Παρακαλώ Περιμένετε!</h3>
+    <!--<button class="btn btn-primary">Dismiss</button>-->
+</div>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <img src="/portal/static/css/sepelogo.png" alt="ΣΕΠΕ"/>
+            <a class="navbar-brand"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <form th:object="${user}" id="logoutForm" action="/logout" method="post">
+                <!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a href="/portal/login" onclick="document.getElementById('loginForm').submit();">Εισοδος &nbsp;<i class="glyphicon glyphicon-log-in"></i></a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="page-container">
+    <div class="container main-container">
+        <div class="row padded-bottom"/>
+        <!--<div class="row">
+            <div class="center-block center-content">
+                <h2>Επιβεβαίωση στοιχείων ΙΚΑ</h2>
+            </div>
+        </div>-->
+        <div class="row" th:if="${profileSaveError}">
+            <div class="center-block" style="color: red;" th:text="${profileSaveError}"/>
+
+        </div>
+        <br></br>
+        <center>
+            <div class="center-content" style="margin-bottom:10px;">
+                Σύμφωνα με τα στοιχεία της ΓΓΔΕ είστε επιτηδευματίας. Επιλέξτε αν θέλετε να εγγραφείτε ως εργαζόμενος ή ως επιχείρηση.
+            </div>
+            <tr>
+                <form th:action="@{goToEmployee}" method="post">
+
+            <tr>
+
+                <div class="center-content">
+                    <button class="btn btn-primary" type="submit" style="width:140px; height:40px"><i class="glyphicon glyphicon-log-in"></i>   &nbsp;&nbsp;εργαζόμενος</button>
+                </div>
+            </tr>
+            </form>
+            </tr>
+            <br></br>
+            <tr>
+                <form th:action="@{goToCompany}" method="post">
+
+            <tr>
+
+                <div class="center-content">
+                    <button class="btn btn-primary" type="submit" style="width:140px; height:40px"><i class="glyphicon glyphicon-log-in"></i>   &nbsp;&nbsp; επιχείριση </button>
+                </div>
+            </tr>
+            </form>
+            </tr>
+        </center>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+        >
+<head>
+    <title>ΣΕΠΕ</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href="/portal/static/css/main.css" rel="stylesheet"/>
+    <link href="/portal/static/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/portal/static/bootstrap/js/bootstrap.min.js"></script>
+<style>
+    .modal.fade .modal-dialog {
+        transform: translate(0px, -25%);
+        transition: transform 0.3s ease-out 0s;
+    }
+    .modal.fade.in .modal-dialog {
+        transform: translate(0px, 0px);
+    }
+    .flyover {
+        left: 150%;
+        overflow: hidden;
+        position: fixed;
+        width: 50%;
+        opacity: 0.9;
+        z-index: 1050;
+        transition: left 0.6s ease-out 0s;
+    }
+
+    .flyover-centered {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .flyover.in {
+        left: 50%;
+    }
+</style>
+</head>
+
+<body>
+<div id="message1" class="jumbotron flyover flyover-centered">
+    <h3>Προσοχή!</h3>
+    <h4>
+        Μεταφέρεστε στην σελίδα επιβεβαίωσης στοιχείων...
+    </h4>
+    <span>Μέσω της αίτησης αυτής γίνεται ενημέρωση επεξεργασίας δεδομένων προσωπικού χαρακτήρα για την επεξεργασία των προσωπικών δεδομένων του αιτούντα.</span>
+    <br/>
+    <div class="center-content">
+        <a th:href="@{/register2/oauth}"><button class="btn btn-primary" style="text-align: center;">Συνεχεια</button></a>
+    </div>
+</div>
+<div id="message2" class="jumbotron flyover flyover-centered">
+    <h3>Προσοχή!</h3>
+    <h4>
+        Μεταφέρεστε στην σελίδα επιβεβαίωσης στοιχείων...
+    </h4>
+    <span>Μέσω της αίτησης αυτής γίνεται ενημέρωση επεξεργασίας δεδομένων προσωπικού χαρακτήρα για την επεξεργασία των προσωπικών δεδομένων του αιτούντα.</span>
+    <br/>
+    <div class="center-content">
+        <a th:href="@{/registerTa/oauth/technician}"><button class="btn btn-primary" style="text-align: center;">Συνεχεια</button></a>
+    </div>
+</div>
+<div id="message3" class="jumbotron flyover flyover-centered">
+    <h3>Προσοχή!</h3>
+    <h4>
+        Μεταφέρεστε στην σελίδα επιβεβαίωσης στοιχείων...
+    </h4>
+    <span>Μέσω της αίτησης αυτής γίνεται ενημέρωση επεξεργασίας δεδομένων προσωπικού χαρακτήρα για την επεξεργασία των προσωπικών δεδομένων του αιτούντα.</span>
+    <br/>
+    <div class="center-content">
+        <a th:href="@{/registerTa/oauth/doctor}"><button class="btn btn-primary" style="text-align: center;">Συνεχεια</button></a>
+    </div>
+</div>
+<div class="navbar navbar-default navbar-fixed-top" >
+    <div class="container">
+        <div class="navbar-header">
+            <img src="/portal/static/css/sepelogo.png" alt="ΣΕΠΕ"/>
+            <a class="navbar-brand"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <form id="logoutForm" action="logout" method="post">
+                <!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+                <ul class="nav navbar-nav" style="margin-left: 80px">
+                    <li><a href="anonymous" style="font-size: 10.5px">Ανωνυμη Καταγγελια &nbsp;<i class="glyphicon glyphicon-bullhorn"></i></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Δημιουργια νεου λογαριασμου&nbsp;<i class="glyphicon glyphicon-plus"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <!--<li><a th:onclick="'$(\'#message1\').toggleClass(\'in\');'" th:href="@{/register2/oauth}">Εταιρια / Υπαλληλος&nbsp;</a></li>-->
+                            <li><a th:onclick="'$(\'#message1\').toggleClass(\'in\');'">Εταιρια / Υπαλληλος&nbsp;</a></li>
+                            <!--<li><a th:onclick="'$(\'#message1\').toggleClass(\'in\');'" th:href="@{/registerTa/oauth/technician}">Tεχνικος Aσφαλειας&nbsp;</a></li>-->
+                            <li><a th:onclick="'$(\'#message2\').toggleClass(\'in\');'">Tεχνικος Aσφαλειας&nbsp;</a></li>
+                            <!--<li><a th:onclick="'$(\'#message1\').toggleClass(\'in\');'" th:href="@{/registerTa/oauth/doctor}">Ιατρος Εργασιας&nbsp;</a></li>-->
+                            <li><a th:onclick="'$(\'#message3\').toggleClass(\'in\');'">Ιατρος Εργασιας&nbsp;</a></li>
+                        </ul>
+                    </li>
+                    <li><a th:href="@{/password}" style="font-size: 10.5px">Ξεχασα τον Κωδικο μου &nbsp;<i class="glyphicon glyphicon-wrench"></i></a></li>
+                    <!--<li><a href="logout" onclick="document.getElementById('logoutForm').submit();">Εξοδος</a>
+                    </li>-->
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="page-container">
+    <div class="container main-container">
+        <div class="row padded-bottom"/>
+        <div class="row">
+            <div class="center-block center-content">
+                <h2>Είσοδος Συστήματος</h2>
+            </div>
+        </div>
+        <div th:if="${param.error}" class="row">
+            <div class="center-block center-content padded-bottom" style="color: red">
+                Λάθος Όνομα Χρήστη ή Κωδικός.
+            </div>
+        </div>
+        <div th:if="${param.logout}" class="row">
+            <div class="center-block center-content padded-bottom">
+                Έχετε αποσυνδεθεί.
+            </div>
+        </div>
+        <br />
+        <center>
+        <tr>
+            <form th:action="@{login}" method="post">
+                <tr>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="sizing-addon2" style="width: 180px;"><i class="glyphicon glyphicon-user"></i>   &nbsp;&nbsp;Όνομα Χρήστη:</span>
+                            <input type="text" class="form-control" name="username" aria-describedby="sizing-addon2" style="width: 260px;"/>
+                        </div>
+                        <!--<div class="center-content">
+                            <label> Όνομα Χρήστη:
+                                <input class="form-control" type="text" name="username"/>
+                            </label>
+                        </div>-->
+                    </td>
+                    <br />
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon2" style="width: 180px;"><i class="glyphicon glyphicon-lock"></i>   &nbsp;&nbsp;Κωδικός Χρήστη:</span>
+                        <input type="password" class="form-control" name="password" aria-describedby="sizing-addon2" style="width: 260px;"/>
+                    </div>
+                        <!--<div class="center-content">
+                            <label> Κωδικός Χρήστη:
+                                <input class="form-control" type="password" name="password"/>
+                            </label>
+                        </div>-->
+                    </td>
+                </tr>
+                <br />
+                <tr>
+                    <div class="center-content">
+                        <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-log-in"></i>   &nbsp;&nbsp;εισοδος</button>
+                    </div>
+                </tr>
+            </form>
+        </tr>
+        </center>
+    </div>
+</div>
+
+</body>
+</html>

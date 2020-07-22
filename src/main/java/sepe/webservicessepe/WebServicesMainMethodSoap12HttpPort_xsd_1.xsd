@@ -1,0 +1,227 @@
+<xs:schema xmlns:tns="http://webservicessepe/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+     targetNamespace="http://webservicessepe/">
+    <xs:element name="retrieveAuthentication" type="tns:retrieveAuthentication"/>
+    <xs:element name="retrieveAuthenticationResponse" type="tns:retrieveAuthenticationResponse"/>
+    <xs:element name="retrieveEmployer" type="tns:retrieveEmployer"/>
+    <xs:element name="retrieveEmployerBranches" type="tns:retrieveEmployerBranches"/>
+    <xs:element name="retrieveEmployerBranchesResponse" type="tns:retrieveEmployerBranchesResponse"/>
+    <xs:element name="retrieveEmployerIncharges" type="tns:retrieveEmployerIncharges"/>
+    <xs:element name="retrieveEmployerInchargesResponse" type="tns:retrieveEmployerInchargesResponse"/>
+    <xs:element name="retrieveEmployerResponse" type="tns:retrieveEmployerResponse"/>
+    <xs:element name="retrieveParameter" type="tns:retrieveParameter"/>
+    <xs:element name="retrieveParameterResponse" type="tns:retrieveParameterResponse"/>
+    <xs:complexType name="retrieveEmployer">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:webRequestEmployer" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webRequestEmployer">
+        <xs:sequence>
+            <xs:element name="employerId" type="xs:string" minOccurs="0"/>
+            <xs:element name="ypokUserName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveEmployerResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:webResponseEmployer" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webResponseEmployer">
+        <xs:sequence>
+            <xs:element name="branchesCount" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="businessStartDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="censusDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="discreetTitle" type="xs:string" minOccurs="0"/>
+            <xs:element name="employerId" type="xs:string" minOccurs="0"/>
+            <xs:element name="employerStatus" type="xs:string" minOccurs="0"/>
+            <xs:element name="fatherName" type="xs:string" minOccurs="0"/>
+            <xs:element name="fullName" type="xs:string" minOccurs="0"/>
+            <xs:element name="lastUpdatedDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="lastUpdatedTime" type="xs:string" minOccurs="0"/>
+            <xs:element name="legCatLegalCategoryCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="physicalFlag" type="xs:string" minOccurs="0"/>
+            <xs:element name="resultId" type="xs:int"/>
+            <xs:element name="resultReason" type="xs:string" minOccurs="0"/>
+            <xs:element name="selfAppointedCensus" type="xs:string" minOccurs="0"/>
+            <xs:element name="sicSpecialInsCategoryCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="taxationNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="taxoffTaxationOfficeCode" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveEmployerIncharges">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:webRequestEmployerIncharges" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webRequestEmployerIncharges">
+        <xs:sequence>
+            <xs:element name="employerId" type="xs:string" minOccurs="0"/>
+            <xs:element name="taxiationNo" type="xs:string" minOccurs="0"/>
+            <xs:element name="ypokUserName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveEmployerInchargesResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:webResponseEmployerIncharges" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webResponseEmployerIncharges">
+        <xs:sequence>
+            <xs:element name="resultId" type="xs:int"/>
+            <xs:element name="resultReason" type="xs:string" minOccurs="0"/>
+            <xs:element name="webResponseEmployerInchargesLst" type="tns:webResponseEmployerInchargesDetails"
+                 nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webResponseEmployerInchargesDetails">
+        <xs:sequence>
+            <xs:element name="addressStreet" type="xs:string" minOccurs="0"/>
+            <xs:element name="birthDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="birthPlace" type="xs:string" minOccurs="0"/>
+            <xs:element name="city" type="xs:string" minOccurs="0"/>
+            <xs:element name="cntyCountyCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="empEmployerId" type="xs:string" minOccurs="0"/>
+            <xs:element name="fatherName" type="xs:string" minOccurs="0"/>
+            <xs:element name="fatherSurname" type="xs:string" minOccurs="0"/>
+            <xs:element name="homeAddressNo" type="xs:string" minOccurs="0"/>
+            <xs:element name="identificationIssueOrg" type="xs:string" minOccurs="0"/>
+            <xs:element name="identificationNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="identificationType" type="xs:string" minOccurs="0"/>
+            <xs:element name="incstatVirtueCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="issueDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="motherName" type="xs:string" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="nationalServiceStartDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="nationalServiceTerminDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="physicalFlag" type="xs:string" minOccurs="0"/>
+            <xs:element name="secondPhoneNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="spouseName" type="xs:string" minOccurs="0"/>
+            <xs:element name="spouseSurname" type="xs:string" minOccurs="0"/>
+            <xs:element name="statusEmployerIncharges" type="xs:string" minOccurs="0"/>
+            <xs:element name="surname" type="xs:string" minOccurs="0"/>
+            <xs:element name="taxationNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="taxoffTaxationOfficeCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="virtueDescr" type="xs:string" minOccurs="0"/>
+            <xs:element name="zipCode" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveEmployerBranches">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:webRequestEmployerBranches" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webRequestEmployerBranches">
+        <xs:sequence>
+            <xs:element name="employerBranchId" type="xs:string" minOccurs="0"/>
+            <xs:element name="employerId" type="xs:string" minOccurs="0"/>
+            <xs:element name="ypokUserName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveEmployerBranchesResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:webResponseEmployerBranches" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webResponseEmployerBranches">
+        <xs:sequence>
+            <xs:element name="resultId" type="xs:int"/>
+            <xs:element name="resultReason" type="xs:string" minOccurs="0"/>
+            <xs:element name="webResponseEmployerBranchesList" type="tns:webResponseEmployerBranchesDetails"
+                 nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webResponseEmployerBranchesDetails">
+        <xs:sequence>
+            <xs:element name="addressNo" type="xs:string" minOccurs="0"/>
+            <xs:element name="addressStreet" type="xs:string" minOccurs="0"/>
+            <xs:element name="censusDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="city" type="xs:string" minOccurs="0"/>
+            <xs:element name="cntyCountyCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="countyDescr" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="empEmployerId" type="xs:string" minOccurs="0"/>
+            <xs:element name="employerBranchId" type="xs:decimal" minOccurs="0"/>
+            <xs:element name="employerBranchStatus" type="xs:string" minOccurs="0"/>
+            <xs:element name="faxNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="fiveDayPeriodFlag" type="xs:string" minOccurs="0"/>
+            <xs:element name="lastUpdatedDate" type="xs:string" minOccurs="0"/>
+            <xs:element name="lastUpdatedTime" type="xs:string" minOccurs="0"/>
+            <xs:element name="mainBranchFlag" type="xs:string" minOccurs="0"/>
+            <xs:element name="orgbraBranchCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="seasonalFlag" type="xs:string" minOccurs="0"/>
+            <xs:element name="secondPhoneNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="selfAppointedCensus" type="xs:string" minOccurs="0"/>
+            <xs:element name="taxoffTaxationOfficeCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="thirdPhoneNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="zipCode" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveParameter">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:webRequestParameter" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webRequestParameter">
+        <xs:sequence>
+            <xs:element name="parameterName" type="xs:string" minOccurs="0"/>
+            <xs:element name="ypokUserName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveParameterResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:webResponseParameter" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webResponseParameter">
+        <xs:sequence>
+            <xs:element name="resultId" type="xs:int"/>
+            <xs:element name="resultReason" type="xs:string" minOccurs="0"/>
+            <xs:element name="webResponseParameterList" type="tns:webResponseParameterDetails" nillable="true"
+                 minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webResponseParameterDetails">
+        <xs:sequence>
+            <xs:element name="activeDateFrom" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="activeDateTo" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="code" type="xs:string" minOccurs="0"/>
+            <xs:element name="creationDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="extraAttribute1" type="xs:string" minOccurs="0"/>
+            <xs:element name="extraAttribute2" type="xs:string" minOccurs="0"/>
+            <xs:element name="extraAttribute3" type="xs:string" minOccurs="0"/>
+            <xs:element name="extraAttribute4" type="xs:string" minOccurs="0"/>
+            <xs:element name="lastUpdatedDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="lastUpdatedTime" type="xs:string" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="status" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveAuthentication">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:webRequestAuthentication" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webRequestAuthentication">
+        <xs:sequence>
+            <xs:element name="password" type="xs:string" minOccurs="0"/>
+            <xs:element name="userName" type="xs:string" minOccurs="0"/>
+            <xs:element name="ypokUserName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveAuthenticationResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:webResponseAuthentication" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="webResponseAuthentication">
+        <xs:sequence>
+            <xs:element name="employerId" type="xs:string" minOccurs="0"/>
+            <xs:element name="resultId" type="xs:int"/>
+            <xs:element name="resultReason" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

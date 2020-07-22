@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ΣΕΠΕ</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href="/portal/static/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/portal/static/css/main.css" rel="stylesheet"/>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/portal/static/bootstrap/js/bootstrap.js"></script>
+    <script src="/portal/static/userapp/ext/build/ext-all.js"></script>
+    <script src="/portal/static/userapp/ext/packages/ext-theme-crisp/build/ext-theme-crisp.js"></script>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <img src="/portal/static/userapp/resources/sepelogo.png" alt="ΣΕΠΕ"/>
+            <a class="navbar-brand"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <form th:object="${user}" id="logoutForm" action="/logout" method="post">
+                <!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/portal/admin">Διαχείριση χρηστών &nbsp;<i class="glyphicon glyphicon-briefcase"></i></a></li>
+                    <li><a th:href="@{/register}">Δημιουργια νεου λογαριασμου&nbsp;&nbsp;<i class="glyphicon glyphicon-plus"></i></a></li>
+                    <li><a href="/portal/logout" onclick="document.getElementById('logoutForm').submit();">Εξοδος &nbsp;<i class="glyphicon glyphicon-log-out"></i></a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="page-container">
+    <div class="container main-container">
+        <form action="/portal/adminProfile/save" method="post" accept-charset="utf-8">
+            <!-- <input th:name="${_csrf.parameterName}" type="hidden" th:value="${_csrf.token}"/>-->
+            <div class="row">
+                <div class="center-block center-content">
+                    <h2>Προφίλ Διαχειριστή Χρηστών</h2>
+                </div>
+            </div>
+            <div class="center-block center-content">
+            <div class="row" th:if="${profileSaveError}">
+                <div class="center-block" style="color: red;" th:text="${profileSaveError}"/>
+            </div>
+                </div>
+            <br />
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Email:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <input type="hidden" th:field="*{user.id}" name="id"/>
+                    <input class=" form-control" type="text" th:value="${user.email}"
+                           maxlength="50" size="30" name="email"/>
+                </div>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Όνομα Χρήστη:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <input class="form-control" type="text" th:value="${user.username}" th:readonly="${user.username}"
+                           maxlength="50" size="30" name="username"/>
+                </div>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Τρέχων Κωδικός:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <input class="form-control" type="password" id="currentPassword" name="currentPassword"
+                           maxlength="20" size="20"/>
+                    <span class="fine-print">(Πρέπει να είναι σωστός για ενημέρωση του προφίλ)</span>
+                </div>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Νέος Κωδικός:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <input class="form-control" type="password" id="newPassword" name="newPassword" maxlength="20"
+                           size="20"/>
+                    <span class="fine-print">(Αφήστε κενό εκτός αν θέλετε να αλλάξει ο κωδικός)</span>
+                </div>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Επαλήθευση Κωδικού:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <input class="form-control" type="password" id="reenterNewPassword" name="reenterNewPassword"
+                           maxlength="20" size="20"/>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="center-block center-content">
+                    <button class="btn btn-primary" type="submit">Ενημερωση Προφιλ</button>
+                </div>
+            </div>
+            <div class="row padded-bottom"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+        >
+<head>
+    <title>ΣΕΠΕ</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href="/portal/static/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/portal/static/css/main.css" rel="stylesheet"/>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/portal/static/bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .wrap{
+            margin:0 auto;
+            width:100%;
+        }
+        .logo{
+            margin-top:50px;
+        }
+        .logo h1{
+            font-size:200px;
+            color: #565553;
+            text-align:center;
+            margin-bottom:1px;
+            text-shadow:1px 1px 6px #fff;
+        }
+        .logo p{
+            color: rgb(59, 112, 167);
+            font-size:20px;
+            margin-top:1px;
+            text-align:center;
+        }
+        .sub a{
+            color:white;
+            background:#565553;
+            text-decoration:none;
+            padding:7px 120px;
+            font-size:13px;
+            font-weight:bold;
+            -webkit-border-radius:3em;
+            -moz-border-radius:.1em;
+            -border-radius:.1em;
+        }
+    </style>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <img src="/portal/static/userapp/resources/sepelogo.png" alt="ΣΕΠΕ"/>
+            <a class="navbar-brand"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <form id="logoutForm" action="/logout" method="post">
+                <!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/portal/logout" onclick="document.getElementById('logoutForm').submit();">Εξοδος &nbsp;<i class="glyphicon glyphicon-log-out"></i></a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="page-container">
+    <div class="container main-container">
+        <div class="row padded-bottom"/>
+        <div class="center-block center-content padded-bottom">
+            <div class="wrap">
+                <div class="logo">
+                    <h1>500</h1>
+                    <p>Σφάλμα Διακομιστή! - Προσπαθήστε ξανά σε λίγο</p>
+                    <div class="sub">
+                        <p><a href="/portal/logout">Eπιστροφή στην κεντρική</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--Error 500. Server Error.-->
+        </div>
+    </div>
+</div>
+</body>
+</html>

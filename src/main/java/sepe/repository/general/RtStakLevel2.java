@@ -1,0 +1,86 @@
+package sepe.repository.general;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.core.annotation.RestResource;
+import sepe.domain.general.TRtStakLevel1;
+import sepe.domain.general.TRtStakLevel2;
+
+import javax.annotation.Nullable;
+import java.util.List;
+
+/**
+ * Created by Nikolas on 2/24/2015.
+ */
+
+//http://localhost:7001/RtStakLevel2/search/findLevel2byId?id=01
+//http://localhost:7001/RtStakLevel2/search/findLevel2?level1=%CE%91
+@RepositoryRestResource(collectionResourceRel = "RtStakLevel2", path = "/RtStakLevel2")
+public interface RtStakLevel2 extends CrudRepository<TRtStakLevel2, String> {
+
+    @Query(
+            value = "SELECT o from TRtStakLevel2 o"
+                    + " WHERE o.spRtstackLevel2 = :#{#id}",
+            nativeQuery = false
+    )
+    @Nullable
+    public List<TRtStakLevel2> findLevel2byId(@Param("id") String id);
+
+    @Query(
+            value = "SELECT o from TRtStakLevel2 o"
+                    + " WHERE o.spRtstackLevel1 = :#{#level1}",
+            nativeQuery = false
+    )
+    @Nullable
+    public List<TRtStakLevel2> findLevel2( @Param("level1") String level1);
+    /*******************************************************************************
+     ********************************************************************************/
+
+    @Override
+    @RestResource(exported = false)
+    public TRtStakLevel2 findOne(String id);
+
+   //@Override
+   //@RestResource(exported = false)
+   // public List<OBJ_TYPE> findAll();
+
+    @Override
+    @RestResource(exported = false)
+    public long count();
+
+    @Override
+    @RestResource(exported = false)
+    public void delete(String id);
+
+//@Override
+//@RestResource(exported = false)
+//public void delete(List<OBJ_TYPE> entities);
+
+//@Override
+//@RestResource(exported = false)
+//public void delete(OBJ_TYPE entity);
+
+    @Override
+    @RestResource(exported = false)
+    public void deleteAll();
+
+    @Override
+    @RestResource(exported = false)
+    public boolean exists(String id);
+
+//@Override
+//@RestResource(exported = false)
+//public List<OBJ_TYPE> findAll(List<ID_TYPE> ids);
+
+//@Override
+//@RestResource(exported = false)
+//public List<OBJ_TYPE> save(List<OBJ_TYPE> entities);
+
+    @Override
+    @RestResource(exported = false)
+    public TRtStakLevel2 save(TRtStakLevel2 entity);
+
+
+}

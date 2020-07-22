@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ΣΕΠΕ</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href="/portal/static/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/portal/static/css/main.css" rel="stylesheet"/>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/portal/static/bootstrap/js/bootstrap.js"></script>
+    <script src="/portal/static/userapp/ext/build/ext-all.js"></script>
+    <script src="/portal/static/userapp/ext/packages/ext-theme-crisp/build/ext-theme-crisp.js"></script>
+
+</head>
+
+<body>
+<link rel="stylesheet" href="/portal/static/userapp/resources/MyApp-all.css"/>
+<div id='loading-mask'></div><div id='loading'><div class='loading-indicator'>Έναρξη Εφαρμογής...</div></div>
+<script type="text/javascript" src="/portal/static/userapp/employee.js"></script>
+<script type="text/javascript">Ext.onReady(function() {  setTimeout(function(){  Ext.get('loading').remove();  Ext.get('loading-mask').fadeOut({remove:true}); }, 250);}); </script>
+</body>
+</html>

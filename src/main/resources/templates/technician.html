@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ΣΕΠΕ</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href="/portal/static/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/portal/static/css/main.css" rel="stylesheet"/>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/portal/static/bootstrap/js/bootstrap.js"></script>
+    <script src="/portal/static/userapp/ext/build/ext-all.js"></script>
+    <script src="/portal/static/userapp/ext/packages/ext-theme-crisp/build/ext-theme-crisp.js"></script>
+</head>
+
+<body>
+<form id="myForm" action="/portal/technicianProfile/updateData3" method="post">
+    <input type="hidden" class="form-control" name="afm" aria-describedby="sizing-addon2" style="width: 260px; height: 43px;"/>
+</form>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <img src="/portal/static/userapp/resources/sepelogo.png" alt="ΣΕΠΕ"/>
+            <a class="navbar-brand"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <form th:object="${user}" id="logoutForm" action="/logout" method="post">
+                <!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="cursor: pointer"><a onclick="document.getElementById('myForm').submit();">
+                        <div><span th:text="*{username}"/>&nbsp;&nbsp;<span class="glyphicon glyphicon-cog"></span></div>
+                    </a></li>
+                    <li><a href="/portal/logout" onclick="document.getElementById('logoutForm').submit();">Εξοδος &nbsp;<i class="glyphicon glyphicon-log-out"></i></a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="/portal/static/userapp/resources/MyApp-all.css"/>
+<div id='loading-mask'></div><div id='loading'><div class='loading-indicator'>Έναρξη Εφαρμογής...</div></div>
+<script type="text/javascript" src="/portal/static/userapp/technician.js"></script>
+<script type="text/javascript">Ext.onReady(function() {  setTimeout(function(){  Ext.get('loading').remove();  Ext.get('loading-mask').fadeOut({remove:true}); }, 250);}); </script>
+</body>
+</html>

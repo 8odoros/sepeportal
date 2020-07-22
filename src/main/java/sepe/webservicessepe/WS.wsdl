@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+     name="WebServicesMainMethodService"
+     targetNamespace="http://webservicessepe/"
+     xmlns="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="http://webservicessepe/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="WebServicesMainMethodPort_Fault_Policy"/>
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="WebServicesMainMethodPort_Input_Policy">
+<sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<sp:Body/>
+<sp:Header Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+<sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0"/>
+<sp:Header Name="SignatureConfirmation" Namespace="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd"/>
+<sp:Header Name="SignatureConfirmation" Namespace="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<sp:Body/>
+<sp:Header Name="fmw-context" Namespace="http://xmlns.oracle.com/fmw/context/1.0"/>
+</sp:EncryptedParts>
+</wsp:Policy>
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="WebServicesMainMethodPort_Output_Policy">
+<sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<sp:Body/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:Policy>
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="wss11_username_token_with_message_protection_service_policy">
+<sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<wsp:Policy>
+<sp:ProtectionToken>
+<wsp:Policy>
+<sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+<wsp:Policy>
+<sp:RequireThumbprintReference/>
+<sp:WssX509V3Token11/>
+</wsp:Policy>
+</sp:X509Token>
+</wsp:Policy>
+</sp:ProtectionToken>
+<sp:AlgorithmSuite>
+<wsp:Policy>
+<sp:Basic128/>
+</wsp:Policy>
+</sp:AlgorithmSuite>
+<sp:Layout>
+<wsp:Policy>
+<sp:Lax/>
+</wsp:Policy>
+</sp:Layout>
+<sp:IncludeTimestamp/>
+<sp:OnlySignEntireHeadersAndBody/>
+</wsp:Policy>
+</sp:SymmetricBinding>
+<sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<wsp:Policy>
+<sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+<wsp:Policy>
+<sp:WssUsernameToken10/>
+</wsp:Policy>
+</sp:UsernameToken>
+</wsp:Policy>
+</sp:SignedSupportingTokens>
+<sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<wsp:Policy>
+<sp:RequireSignatureConfirmation/>
+<sp:MustSupportRefEncryptedKey/>
+</wsp:Policy>
+</sp:Wss11>
+</wsp:Policy>
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://webservicessepe/" schemaLocation="https://10.192.39.52/WebServicesSepeNew-WebServicesSepe-context-root/WebServicesMainMethodSoap12HttpPort?xsd=1"/>
+        </xsd:schema>
+    </types>
+    <message name="retrieveAuthentication">
+        <part name="parameters" element="tns:retrieveAuthentication"/>
+    </message>
+    <message name="retrieveAuthenticationResponse">
+        <part name="parameters" element="tns:retrieveAuthenticationResponse"/>
+    </message>
+    <message name="retrieveEmployer">
+        <part name="parameters" element="tns:retrieveEmployer"/>
+    </message>
+    <message name="retrieveEmployerResponse">
+        <part name="parameters" element="tns:retrieveEmployerResponse"/>
+    </message>
+    <message name="retrieveParameter">
+        <part name="parameters" element="tns:retrieveParameter"/>
+    </message>
+    <message name="retrieveParameterResponse">
+        <part name="parameters" element="tns:retrieveParameterResponse"/>
+    </message>
+    <message name="retrieveEmployerBranches">
+        <part name="parameters" element="tns:retrieveEmployerBranches"/>
+    </message>
+    <message name="retrieveEmployerBranchesResponse">
+        <part name="parameters" element="tns:retrieveEmployerBranchesResponse"/>
+    </message>
+    <message name="retrieveEmployerIncharges">
+        <part name="parameters" element="tns:retrieveEmployerIncharges"/>
+    </message>
+    <message name="retrieveEmployerInchargesResponse">
+        <part name="parameters" element="tns:retrieveEmployerInchargesResponse"/>
+    </message>
+    <portType name="WebServicesMainMethod">
+        <operation name="retrieveAuthentication">
+            <input message="tns:retrieveAuthentication"/>
+            <output message="tns:retrieveAuthenticationResponse"/>
+        </operation>
+        <operation name="retrieveEmployer">
+            <input message="tns:retrieveEmployer"/>
+            <output message="tns:retrieveEmployerResponse"/>
+        </operation>
+        <operation name="retrieveParameter">
+            <input message="tns:retrieveParameter"/>
+            <output message="tns:retrieveParameterResponse"/>
+        </operation>
+        <operation name="retrieveEmployerBranches">
+            <input message="tns:retrieveEmployerBranches"/>
+            <output message="tns:retrieveEmployerBranchesResponse"/>
+        </operation>
+        <operation name="retrieveEmployerIncharges">
+            <input message="tns:retrieveEmployerIncharges"/>
+            <output message="tns:retrieveEmployerInchargesResponse"/>
+        </operation>
+    </portType>
+    <binding name="WebServicesMainMethodPortBinding" type="tns:WebServicesMainMethod">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#wss11_username_token_with_message_protection_service_policy" wsdl:required="false"/>
+        <operation name="retrieveAuthentication">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+      <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#WebServicesMainMethodPort_Input_Policy" wsdl:required="false"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+      <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#WebServicesMainMethodPort_Output_Policy" wsdl:required="false"/>
+            </output>
+        </operation>
+        <operation name="retrieveEmployer">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+      <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#WebServicesMainMethodPort_Input_Policy" wsdl:required="false"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+      <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#WebServicesMainMethodPort_Output_Policy" wsdl:required="false"/>
+            </output>
+        </operation>
+        <operation name="retrieveParameter">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+      <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#WebServicesMainMethodPort_Input_Policy" wsdl:required="false"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+      <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#WebServicesMainMethodPort_Output_Policy" wsdl:required="false"/>
+            </output>
+        </operation>
+        <operation name="retrieveEmployerBranches">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+      <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#WebServicesMainMethodPort_Input_Policy" wsdl:required="false"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+      <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#WebServicesMainMethodPort_Output_Policy" wsdl:required="false"/>
+            </output>
+        </operation>
+        <operation name="retrieveEmployerIncharges">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+      <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#WebServicesMainMethodPort_Input_Policy" wsdl:required="false"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+      <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#WebServicesMainMethodPort_Output_Policy" wsdl:required="false"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="WebServicesMainMethodService">
+        <port name="WebServicesMainMethodPort" binding="tns:WebServicesMainMethodPortBinding">
+            <soap:address location="https://10.192.39.52/WebServicesSepeNew-WebServicesSepe-context-root/WebServicesMainMethodSoap12HttpPort"/>
+            <wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing">
+                <wsa:Address xmlns:wsa="http://www.w3.org/2005/08/addressing">https://10.192.39.52/WebServicesSepeNew-WebServicesSepe-context-root/WebServicesMainMethodSoap12HttpPort</wsa:Address>
+                <wsid:Identity xmlns:wsid="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+                    <dsig:KeyInfo xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+                        <dsig:X509Data>
+                            <dsig:X509Certificate>MIIC0jCCAjsCCQC3l6TlmarTfzANBgkqhkiG9w0BAQUFADCBqTELMAkGA1UEBhMCR1IxDzANBgNVBAgTBkFUVElDQTEPMA0GA1UEBxMGQVRIRU5TMUgwRgYDVQQKEz9Tb2NpYWwgSW5zdXJhbmNlIEluc3RpdHV0ZS1VbmlmaWVkIEluc3VyYW5jZSBGdW5kIGZvciBFbXBsb3llZXMxHTAbBgNVBAsTFElLQS1FVEFNIElUIERpdmlzaW9uMQ8wDQYDVQQDEwZJS0EgQ0EwHhcNMTEwOTA4MTgyMTMyWhcNMjEwOTA1MTgyMTMyWjCBsDELMAkGA1UEBhMCR1IxDzANBgNVBAgTBkFUVElDQTEPMA0GA1UEBxMGQVRIRU5TMUgwRgYDVQQKEz9Tb2NpYWwgSW5zdXJhbmNlIEluc3RpdHV0ZS1VbmlmaWVkIEluc3VyYW5jZSBGdW5kIGZvciBFbXBsb3llZXMxHTAbBgNVBAsTFElLQS1FVEFNIElUIERpdmlzaW9uMRYwFAYDVQQDEw1oZXJtZXMuaWthLmdyMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDs3QwgpLnz7bnzbHfPLreaHysfhunJGxqE26YBSZqbk201ctjlri5VTMSX54S8I+JU0AN2+W3yDn+0e2Mxn+RFzbqAYxkd7e6jaOUpOgdhiB2MlGivNIqG3rVdG0b8C0uV3qWePilnWZB+vnnakEJLQzt/w3JMsJpbU0q1yeUzHQIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAC1fHcjN9OrAaE6cCoaezje1nEhfkR1ZUKGMnD2guhU+CjNYAXiEK6iMiUa27tctpDwcLZL4Xg0yHqbXmaLl3jffcQHnSdJuRS7tLiKmeM/ZaEIHWDGhjAyf6pG+ruWydmgZLGAki+evqZDh10j2rYlKbD7QzvFAzuJF6t0x7A5A</dsig:X509Certificate>
+                            <dsig:X509IssuerSerial>
+                                <dsig:X509IssuerName>CN=IKA CA, OU=IKA-ETAM IT Division, O=Social Insurance Institute-Unified Insurance Fund for Employees, L=ATHENS, ST=ATTICA, C=GR</dsig:X509IssuerName>
+                                <dsig:X509SerialNumber>13229223736456696703</dsig:X509SerialNumber>
+                            </dsig:X509IssuerSerial>
+                            <dsig:X509SubjectName>CN=hermes.ika.gr, OU=IKA-ETAM IT Division, O=Social Insurance Institute-Unified Insurance Fund for Employees, L=ATHENS, ST=ATTICA, C=GR</dsig:X509SubjectName>
+                        </dsig:X509Data>
+                    </dsig:KeyInfo>
+                </wsid:Identity>
+            </wsa:EndpointReference>
+        </port>
+    </service>
+</definitions>

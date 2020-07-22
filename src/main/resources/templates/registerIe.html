@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Εγγραφή</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href="/portal/static/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/portal/static/css/main.css" rel="stylesheet"/>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/portal/static/bootstrap/js/bootstrap.min.js"></script>
+
+    <style>
+        .modal.fade .modal-dialog {
+            transform: translate(0px, -25%);
+            transition: transform 0.3s ease-out 0s;
+        }
+        .modal.fade.in .modal-dialog {
+            transform: translate(0px, 0px);
+        }
+        .flyover {
+            left: 150%;
+            overflow: hidden;
+            position: fixed;
+            width: 50%;
+            opacity: 0.9;
+            z-index: 1050;
+            transition: left 0.6s ease-out 0s;
+        }
+
+        .flyover-centered {
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .flyover.in {
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="message1" class="jumbotron flyover flyover-centered">
+    <h3>Παρακαλώ Περιμένετε!</h3>
+    <!--<button class="btn btn-primary">Dismiss</button>-->
+</div>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <img src="/portal/static/css/sepelogo.png" alt="ΣΕΠΕ"/>
+            <a class="navbar-brand"></a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <form th:object="${user}" id="logoutForm" action="/logout" method="post">
+                <!-- <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li><a href="/portal/login" onclick="document.getElementById('loginForm').submit();">Εισοδος &nbsp;<i class="glyphicon glyphicon-log-in"></i></a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="page-container">
+    <div class="container main-container">
+
+
+
+        <form th:object="${newuser}" action="/portal/register2/saveIe" method="post" accept-charset="utf-8">
+            <!-- <input th:name="${_csrf.parameterName}" type="hidden" th:value="${_csrf.token}"/>-->
+            <div class="center-content">
+                <div class="row">
+                    <div class="center-block center-content">
+                        <h2>Δημιουργία Νέου Λογαριασμού</h2>
+                    </div>
+                </div>
+                <br></br>
+                <div class="row" th:if="${profileSaveError}">
+                    <div class="center-block" style="color: red;" th:text="${profileSaveError}"/>
+                    <br></br>
+                </div>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Email:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <input class="form-control" type="text" th:field="*{email}" maxlength="50" size="30" />
+                    <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</td>
+                </div>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Επιβεβαίωση Email:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <input class="form-control" type="text" id="reenterEmail" name="reenterEmail" maxlength="50" size="30" />
+                </div>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Όνομα Χρήστη:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <input id="usernameC" class="form-control" type="text" th:field="*{username}" maxlength="50" size="30"/>
+                    <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">username Error</td>
+                </div>
+                <script type="text/javascript">
+                    /*<![CDATA[*/
+                    $('#usernameC').val('ptl-');
+                    $('#usernameC').on('keypress, keydown', function(event) {
+                        if ((event.which != 37 && (event.which != 39))
+                                && (($('#usernameC')[0].selectionStart < 4)
+                                || (($('#usernameC')[0].selectionStart == 4) && (event.which == 8)))) {
+                            return false;
+                        }
+                    });
+                    /*]]>*/
+                </script>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Κωδικός:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+
+                    <input class="form-control" type="password" th:field="*{password}" maxlength="20" size="30"/>
+                    <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password Error</td>
+                </div>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    * Όσον αφορά τον κωδικό σας πρέπει να τηρείτε τους εξής κανόνες:<br></br>
+
+                    1) Να αποτελείται από τουλάχιστον 6 χαρακτήρες<br></br>
+                    2) Να περιέχει τουλάχιστον 1 αριθμητικό χαρακτήρα. <br></br>
+                    3) Να περιέχει τουλάχιστον 1 αλφαβητικό (latin) χαρακτήρα. <br></br>
+                    4) Να μην περιέχει το username, το επώνυμο ή το όνομα. <br></br>
+                </div>
+
+            </div>
+            <br />
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Όνομα:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <input class="form-control" type="text" th:readonly="true" th:field="*{firstname}" maxlength="20" size="30"/>
+                    <td th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">firstname Error</td>
+                </div>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Επίθετο:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <input class="form-control" type="text" th:readonly="true" th:field="*{lastname}" maxlength="20" size="30"/>
+                    <td th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">lastname Error</td>
+                </div>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    Ρόλος:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <select class="form-control"  th:readonly="true" style="width:251px" th:field="*{role}" th:value="3">
+                        <!--<option th:value="1">Εργαζόμενος</option>-->
+                        <!--<option th:value="3">Εταιρεία</option>-->
+                        <!--<option th:value="4">Τεχνικός ασφάλειας</option>-->
+                        <option th:value="5">Ιατρός εργασίας</option>
+                        <!--<option th:value="6">Σωματείο</option>-->
+                    </select>
+                </div>
+            </div>
+            <div class="row padded-bottom">
+                <div class="col-sm-6 leftcolumn" style="padding: 7px">
+                    AFM:
+                </div>
+                <div class="col-sm-6 rightcolumn">
+                    <input class="form-control" th:readonly="true"  th:value="${afm}" id="afm" name="afm" maxlength="50" size="30"/>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="center-content">
+                    <button th:onclick="'$(\'#message1\').toggleClass(\'in\');'" class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-open"></i>   &nbsp;&nbsp;Δημιουργια Λογαριασμου</button>
+                </div>
+            </div>
+            <div class="row padded-bottom"/>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

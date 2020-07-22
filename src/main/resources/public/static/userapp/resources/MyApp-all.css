@@ -1,0 +1,196 @@
+@import 'MyApp-all_01.css';
+@import 'MyApp-all_02.css';
+@import 'fonts.css';
+
+
+.viewme{ 
+background-image: url('view.png');
+background-size: 100%;
+}
+
+.editme{ 
+background-image: url('edit.png');
+background-size: 100%;
+ }
+ 
+.deleteme{ 
+background-image: url('delete.png');
+background-size: 100%;
+ }
+
+.downloadme{ 
+background-image: url('download.png');
+background-size: 100%;
+ }
+
+.readmebefore{ 
+background-image: url('oldinbox.png');
+background-size: 100%;
+ }
+
+.readmenow{ 
+background-image: url('newinbox.png');
+background-size: 100%;
+ }
+
+.lowpriority{ 
+background-image: url('lowpriority.png');
+background-size: 100%;
+ }
+
+.normalpriority{ 
+background-image: url('normalpriority.png');
+background-size: 100%;
+ }
+
+.highpriority{ 
+background-image: url('highpriority.png');
+background-size: 100%;
+ }
+ 
+ .attachment{ 
+background-image: url('attachment.png');
+background-size: 100%;
+ }
+
+.addone{ 
+background-image: url('addone.png');
+background-size: 100%;
+ }
+
+.recurring{
+    background-image: url('recurring.png');
+    background-size: 100%;
+}
+ 
+.removeone{ 
+background-image: url('removeone.png');
+background-size: 100%;
+ }
+
+.printme{ 
+background-image: url('printgrid.png');
+background-size: 100%;
+ }
+
+.activeU{ 
+background-image: url('active.png');
+background-size: 100%;
+ }
+
+.inactiveU{ 
+background-image: url('inactive.png');
+background-size: 100%;
+ }
+
+.pendingU{ 
+background-image: url('pending.png');
+background-size: 100%;
+ }
+
+.inactivependingU{ 
+background-image: url('inactivepending.png');
+background-size: 100%;
+ }
+
+.activependingU{ 
+background-image: url('activepending.png');
+background-size: 100%;
+ }
+
+.activepausedU{
+    background-image: url('activepaused.png');
+    background-size: 100%;
+}
+
+.previousactiveU{ 
+background-image: url('previousactive.png');
+background-size: 100%;
+ }
+
+.bookopened{
+    background-image: url('bookopened.png');
+    background-size: 100%;
+}
+
+.bookclosed{
+    background-image: url('bookclosed.png');
+    background-size: 100%;
+}
+
+.newwarning{
+    background-image: url('newwarning.png');
+    background-size: 100%;
+}
+
+.oldwarning{
+    background-image: url('oldwarning.png');
+    background-size: 100%;
+}
+
+.accept_or_reject{
+    background-image: url('accept_or_reject.png');
+    background-size: 100%;
+}
+
+.settingsU{
+    background-image: url('settings.png');
+    background-size: 100%;
+}
+
+.noread{
+    background-image: url('noread.png');
+    background-size: 100%;
+}
+ .saki-gms-ct+div{border-top-width:0}.saki-gms-ct{background-color:white;border-width:1px;border-style:solid;border-color:#99bce8;border-bottom:0;border-top:0}.saki-gms-ct .x-form-trigger-wrap-default{border-left-width:0}.saki-gms-ct .x-form-trigger-wrap-default.x-form-trigger-wrap-focus{border-left-width:1px}.saki-gms-nofilter{background-color:#f5f5f5;border-color:#cecece;border-width:1px;border-right-color:#cecece;border-right-style:solid;border-bottom-color:#cecece;border-bottom-style:solid;border-top-style:solid}.saki-gms-clear{position:absolute;right:4px;top:5px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAABNElEQVQYlXWQUUvDMACEv2aZq7VpnaVDNjsVrf//72gFcVFhdJtuqcVIlvqgThS8x7vj7riAL7y2bbdcLmmahq1z9KQkjmOyLOMgigKAAGC9Xm+11sJ7z18IISiKwqdp2hNv1nZaa+EJOTrc/2UMkyNC4dFaizdrO7Goa7z3RPmYSXHJyWEfgH46oTydMMkivPcs6hppjAGgnd+i+yVFcQWDNeloyPvLI9W8BcAYg3DO7WpfHioeDAxHQ0TzxLVe7TTnHEJK+bMxO+VEQbNp8PGYszzaaVJKhFLqy3hOOU541jfc3d9xM1uhji+4yEMAlFIE1tquqio8feLQ0bTbXVpvP2bvvcF2grIsP3/ebDbb2Wz278/T6dQnSdILvklrbVfXNcYYnHNIKVFKkec5g8EgAPgAu0uKVJCfBBYAAAAASUVORK5CYII=);width:11px;height:11px;cursor:pointer;visibility:hidden;-webkit-transition:all 150ms linear;-moz-transition:all 150ms linear;-o-transition:all 150ms linear;opacity:0}input[role=combobox]+div.saki-gms-clear{right:0}.saki-gms-hasvalue:hover .saki-gms-clear{visibility:visible;-webkit-transition:all 150ms linear;-moz-transition:all 150ms linear;-o-transition:all 150ms linear;opacity:1}.saki-gms-filtered{font-weight:bold;font-style:italic;color:#052bd9}.x-tool .saki-gms-icon{margin:3px 1px 4px 3px;cursor:pointer}
+
+#msg-div {position:absolute; left:50%; top:10px; width:400px; margin-left:-200px; z-index:20000;}
+#msg-div .msg {border-radius: 8px;-moz-border-radius: 8px;background: #F6F6F6;border: 2px solid #ccc;margin-top: 2px;padding: 10px 15px;color: #555;}
+#msg-div .msg h3 {margin: 0 0 8px; font-weight: bold; font-size: 15px;}
+#msg-div .msg p {margin: 0;}
+/*<br type="_moz">*/
+
+#loading-mask {
+  position: absolute;
+  left:     0;
+  top:      0;
+  width:    100%;
+  height:   100%;
+  z-index:  20000;
+  background-color: white;
+}
+ 
+
+.empty-text-field {
+    background-image:url(images/magnify.png);
+    background-repeat: no-repeat;
+    background-position: 98% center;
+
+}
+
+#loading {
+    position: absolute;
+    left:     45%;
+    top:      50%;
+    padding:  2px;
+    z-index:  20001;
+    height:   auto;
+    margin:   -35px 0 0 -30px;
+}
+
+#loading .loading-indicator {
+    background: url(images/loadmask/loading.gif) no-repeat;
+    color:      #555;
+    font:       15px arial,helvetica;
+    padding:    0 0 0 50px;
+    margin:     0;
+    text-align: center;
+    height:     auto;
+}
+
+
+.companyuser-button .x-btn-inner
+{
+    color:#337ab7 !important;
+    font-weight: bold;
+}
